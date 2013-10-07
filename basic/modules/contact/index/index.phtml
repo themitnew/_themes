@@ -1,0 +1,35 @@
+<div class="page-container">
+<h2>Cont&aacute;ctenos</h2>
+<div style="float: left; width: 430px ; padding-right: 20px ; padding-top: 10px ;">
+    <p>Si deseas contactarte con nosotros, por favor completa el siguiente formulario, nos comunicaremos contigo lo antes posible.
+        <br/>Tambien puedes enviarnos un Correo Electrónico a <a href="mailto:info@themitnew.com">info@themitnew.com</a>.</p>
+</div>
+<fieldset class="contact-form" style="float: left;">
+    <?php echo $this->message ?>
+    <form method="post" action="">
+        <div class="field">
+            <label>Nombre: <span style="color: red;">*</span></label>
+            <input class="field-text" type="text" name="name" value="<?php echo $this->data['name'] ?>" />
+        </div>
+        <div class="field">
+            <label>Correo Electr&oacute;nico: <span style="color: red;">*</span></label>
+            <input class="field-text" type="text" name="email" value="<?php echo $this->data['email'] ?>" />
+        </div>
+        <div class="field">
+            <label>Telefono: </label>
+            <input class="field-text" type="text" name="phone" value="<?php echo $this->data['phone'] ?>" />
+        </div>
+        <div class="field">
+            <label>Asunto: </label>
+            <input class="field-text" type="text" name="subject" value="<?php echo $this->data['subject'] ?>" />
+        </div>
+        <div class="field" style="width: 460px;">
+            <label>Mensaje: <span style="color: red;">*</span></label>
+            <textarea name="message" ><?php echo $this->data['message'] ?></textarea>
+        </div>
+        <div class="field">
+            <input class="submit-button button" type="submit" value="&nbsp;" />
+        </div>
+    </form>
+</fieldset>
+</div>

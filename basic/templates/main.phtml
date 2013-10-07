@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width">
+        <title>{$vars.page_title}</title>
+        {if $vars.page_keywords}<meta name="keywords" content="{$vars.page_keywords}" />{/if}
+        {if $vars.page_description}<meta name="description" content="{$vars.page_description}" />{/if}
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <link rel="stylesheet" href="{$url_assets}/styles/normalize.css">
+        <link rel="stylesheet" href="{$url_assets}/styles/main.css">
+        <link rel="stylesheet" href="{$url_assets}/styles/style.css">
+
+        <script src="{$url_assets}/scripts/vendor/modernizr-2.6.2.min.js"></script>
+        <script>window.jQuery || document.write('<script src="{$url_assets}/scripts/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+        <style>
+            ul.nav li.item-2 {
+                display: none ;
+            }
+        </style>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+        <div id="wrapper">
+            <header>
+                <div class="inner">
+                    {if $is_home}<h1 id="logo">{else}<div id="logo">{/if}
+                    <a href="{$url_base}">
+                        {if $logo}
+                        <img alt="{$site_name}" title="{$site_name}" src="{$url_uploads}/images/{$logo}"/>
+                        {else}
+                            {$site_name}
+                        {/if}
+                    </a>
+                    {if $is_home}</h1>{else}</div>{/if}
+                    <nav>
+                        <ul class="nav"><li><a class="item-home" href="{$url_base}"></a></li></ul>
+                        {$vars.menu}
+                    </nav>
+                    <div class="clearfix"></div>
+                </div>
+            </header>
+            <div id="layout_content">
+                <div class="inner">
+                    {if $is_home}{else}
+                    <div id="breadcrumbs">
+                        <a href="{$url_base}">Inicio</a> »
+                        {if $vars.is_page}
+                        <span>{$vars.page.title}</span>
+                        {else if $vars.is_product_list}
+                        <span>Nuestros Productos</span>
+                        {else if $vars.is_product_detail}
+                        <span>{$vars.item.name}</span>
+                        {else if $vars.is_category_list}
+                        <span>{$vars.category.name}</span>
+                        {/if}
+                    </div>
+                    {/if}
+                    <div id="sidebar">
+                        <h3 class="categories-title">Categorias</h3>
+                        {product_category_list}
+                    </div>
+                    <div class="right-col">{$content}</div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <footer>
+                <div class="f-line1"></div>
+                <div class="f-line2">
+                    <div class="inner">
+                        <span style="float: left ;">{$site_name}, Todos los derechos Reservados</span>
+                        <span style="float: right ;">Tienda creada con <a href="http://www.bolitiendas.com">BoliTiendas, tu negocio en internet.</a></span>
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+        <script src="{$url_assets}/scripts/plugins.js"></script>
+        <script src="{$url_assets}/scripts/main.js"></script>
+
+        {literal}
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+                g.src='//www.google-analytics.com/ga.js';
+                s.parentNode.insertBefore(g,s)}(document,'script'));
+        </script>
+        {/literal}
+        
+        <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
+        
+        {if $vars.settings.settings.facebook}
+            {$vars.settings.settings.facebook}
+        {/if}
+    </body>
+</html>

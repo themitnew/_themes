@@ -1,0 +1,47 @@
+<div class="product-container">
+    <h1 class="page-title"><span>{$vars.item.name}</span></h1>
+
+    <div class="product-details">
+        {if $vars.images}
+        <div style="float: left; width: 290px ; margin: 0 10px 15px 0 ;">
+            <div class="main-image">
+                <a href="{$url_base}/producto/{$vars.item.id}/{$vars.item.url}"><img src="{$url_uploads}/product/large/{$vars.images.0.filename}" /></a>
+            </div>
+            <div class="thumbs">
+                {foreach $vars.images as $img}
+                <div class="image" >
+                    <img src="{$url_uploads}/product/large/{$img.filename}" />
+                </div> 
+                {/foreach}
+            </div>
+        </div>
+        {/if}
+        
+        <strong>Precio:</strong> Bs. {$vars.item.price}<br/>
+        <strong>Categoria: </strong> {$vars.category.name}<br/><br/>
+        
+        {$vars.item.description}
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready( function() {
+        $('div.main-image a img').each( function() {
+            var top = ( 300 - $(this).height() ) / 2 ;
+            $(this).parent().css('top', top) ;
+        } ) ;
+        
+        $('div.thumbs div.image img').each( function() {
+            var top = ( 75 - $(this).height() ) / 2 ;
+            $(this).css('top', top) ;
+        } ) ;
+        
+        $('div.thumbs div.image img').click( function() {
+            var _src = $(this).parent().attr('image') ;
+            $('div.main-image img').attr('src', _src) ;
+            
+            var top = ( 300 - $('div.main-image img').height() ) / 2 ;
+            $('div.main-image a').css('top', top) ;
+            
+        } ) ;
+    } ) ;
+</script>

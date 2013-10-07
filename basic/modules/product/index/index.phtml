@@ -1,0 +1,26 @@
+<div class="product-container">
+    <h1 class="page-title"><span>Nuestros Productos</span></h1>
+    <div class="product-list">
+        {foreach $vars.products as $item}
+        <div class="product-item {cycle values="col-1,col-2,col-3"} ">
+            
+            <div class="image">
+                <a href="{$url_base}/producto/{$item.id}/{$item.url}"><img src="{$url_uploads}/product/large/{$item.image}" /></a>
+            </div>
+            <a class="name" href="{$url_base}/producto/{$item.id}/{$item.url}">{$item.name}</a>
+            {if $item.price}<div class="price">Bs. {$item.price}</div>{/if}
+        </div>
+        {/foreach}
+    </div>
+</div>
+<script type="text/javascript">
+    jQuery(window).load(function() {
+        jQuery('div.product-list div.product-item div.image a img').each( function() {
+            var _a = $(this) ;
+            if ( _a.height() < 140 ) {
+                _a.parent().css('top', ( 140 - _a.height() ) / 2 ) ;
+            }
+        } ) ;
+    } ) ;
+        
+</script>
